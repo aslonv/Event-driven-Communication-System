@@ -1,0 +1,25 @@
+# k8s/deployment.yaml
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secure-comm-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: secure-comm-system
+  template:
+    metadata:
+      labels:
+        app: secure-comm-system
+    spec:
+      containers:
+      - name: producer
+        image: your_dockerhub_username/producer:latest
+        ports:
+        - containerPort: 5671
+      - name: consumer
+        image: your_dockerhub_username/consumer:latest
+        ports:
+        - containerPort: 5671

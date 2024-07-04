@@ -1,0 +1,13 @@
+# k8s/service.yaml
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: secure-comm-system
+spec:
+  selector:
+    app: secure-comm-system
+  ports:
+    - protocol: TCP
+      port: 5671
+      targetPort: 5671
